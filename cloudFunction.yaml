@@ -1,0 +1,114 @@
+swagger: "2.0"
+info:
+  title: mySampleAPI
+  description: API Walk through.
+  version: 1.0.0
+
+host: Calculator.apigateway.conductive-amp-415312.cloud.goog
+basePath: /
+schemes:
+  - https
+  - http
+
+paths:
+  /add:
+    post:
+      operationId: add
+      summary: Open an existing running image in Cloud Run.
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Result'
+      parameters:
+        - in: body
+          name: user
+          description: The user to create.
+          schema:
+            $ref: '#/definitions/User'
+      x-google-backend:
+        address: https://us-central1-conductive-amp-415312.cloudfunctions.net/add
+
+
+  /div:
+    post:
+      operationId: div
+      summary: Open an existing running image in Cloud Run.
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Result'
+      parameters:
+        - in: body
+          name: user
+          description: The user to create.
+          schema:
+            $ref: '#/definitions/User'
+      x-google-backend:
+        address: https://us-central1-conductive-amp-415312.cloudfunctions.net/div
+
+
+  /sub:
+    post:
+      operationId: sub
+      summary: Open an existing running image in Cloud Run.
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Result'
+      parameters:
+        - in: body
+          name: user
+          description: The user to create.
+          schema:
+            $ref: '#/definitions/User'
+      x-google-backend:
+        address: https://us-central1-conductive-amp-415312.cloudfunctions.net/sub
+
+
+  /mul:
+    post:
+      operationId: mul
+      summary: Open an existing running image in Cloud Run.
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Result'
+      parameters:
+        - in: body
+          name: user
+          description: The user to create.
+          schema:
+            $ref: '#/definitions/User'
+      x-google-backend:
+        address: https://us-central1-conductive-amp-415312.cloudfunctions.net/mul
+
+definitions:
+  User:
+    properties:
+      X:
+        type: integer
+      Y:
+        type: integer
+    # Both properties are required
+    required:  
+      - X
+      - Y
+      
+  Result:
+    properties:
+      result:
+        type: integer
+
+
